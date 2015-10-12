@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+  <SeekBar
+    android:id="@+id/counterSeekBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:max="1000"
+    android:layout_marginTop="25dp"
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp" />
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/counterSeekBar"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/transparent">
+
+      <com.siziksu.canvas.ui.view.CounterView
+        android:id="@+id/drawingCounterView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:padding="0dp"
+        android:layout_centerHorizontal="true"
+        android:max="1000"
+        app:cvStartAngle="120"
+        app:cvDrawingAngle="300"
+        app:cvStepAngle="15"
+        app:cvRimColor="#FFCFCFCF"
+        app:cvRimWidth="35dp"
+        app:cvBarColor="#FF7173B9"
+        app:cvBarWidth="35dp"
+        app:cvNeedleColor="#FF7173B9"
+        app:cvNeedleWidth="3dp"
+        app:cvOuterScaleColor="#FFCFCFCF"
+        app:cvOuterScaleWidth="3dp"
+        app:cvOuterScaleSize="15dp"
+        app:cvRimScaleWidth="30dp"
+        android:textColor="#FF767676"
+        android:textSize="20sp"
+        android:textStyle="normal" />
+    </RelativeLayout>
+  </ScrollView>
+</RelativeLayout>

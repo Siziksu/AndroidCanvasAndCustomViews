@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group android:checkableBehavior="single">
+    <item
+      android:id="@+id/actionHome"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/action_home" />
+    <item
+      android:id="@+id/actionRectAndArc"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/action_rect_and_arc" />
+    <item
+      android:id="@+id/actionRotatingImageView"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/action_rotating_image_view" />
+    <item
+      android:id="@+id/actionDrawingView"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/action_drawing_view" />
+    <item
+      android:id="@+id/actionRoundedView"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/action_rounded_view" />
+    <item
+      android:id="@+id/actionCounterView01"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/action_counter_view_01" />
+    <item
+      android:id="@+id/actionCounterView02"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/action_counter_view_02" />
+  </group>
+</menu>

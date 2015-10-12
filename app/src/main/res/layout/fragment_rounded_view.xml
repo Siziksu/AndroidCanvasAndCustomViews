@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+  <SeekBar
+    android:id="@+id/roundedSeekBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:max="100"
+    android:layout_marginTop="25dp"
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp" />
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/roundedSeekBar"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/transparent">
+
+      <com.siziksu.canvas.ui.view.RoundedImageView
+        android:visibility="gone"
+        android:id="@+id/drawingRoundedImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher"
+        android:scaleType="centerInside"
+        app:rivBarColor="#85813D3B"
+        app:rivBarWidth="15dp" />
+
+      <com.siziksu.canvas.ui.view.RoundedView
+        android:id="@+id/drawingRoundedView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        app:rimColor="#FFCDCDCD"
+        app:rimWidth="20dp"
+        app:barColor="#FF77B97D"
+        app:barWidth="35dp"
+        app:innerCircleColor="#00894E4D"
+        app:rimContourSize="0dp"
+        app:rimContourColor="#FF3C984D"
+        android:textColor="#FF767676"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+    </RelativeLayout>
+  </ScrollView>
+</RelativeLayout>
