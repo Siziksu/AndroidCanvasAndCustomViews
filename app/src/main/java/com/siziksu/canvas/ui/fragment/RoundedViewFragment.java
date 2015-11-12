@@ -39,8 +39,7 @@ public class RoundedViewFragment extends Fragment {
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    ContentManager.getInstance().setTag(this, FragmentTag.ROUNDED_VIEW.getTag());
-    getActivity().setTitle(FragmentTag.ROUNDED_VIEW.getTitle());
+    ContentManager.getInstance().setTagAndTitle(this, FragmentTag.ROUNDED_VIEW);
 
     ((SeekBar) getActivity().findViewById(R.id.roundedSeekBar)).setOnSeekBarChangeListener(seekBarChangeListener);
     roundedView = (RoundedView) getActivity().findViewById(R.id.drawingRoundedView);

@@ -3,10 +3,6 @@
 
   <group android:checkableBehavior="single">
     <item
-      android:id="@+id/actionHome"
-      android:icon="@drawable/ic_menu_home"
-      android:title="@string/action_home" />
-    <item
       android:id="@+id/actionRectAndArc"
       android:icon="@drawable/ic_menu_home"
       android:title="@string/action_rect_and_arc" />
@@ -30,5 +26,9 @@
       android:id="@+id/actionCounterView02"
       android:icon="@drawable/ic_menu_home"
       android:title="@string/action_counter_view_02" />
+    <item
+      android:id="@+id/actionBubbleView"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/action_bubble_view" />
   </group>
 </menu>

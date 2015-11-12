@@ -39,8 +39,7 @@ public class RotatingImageViewFragment extends Fragment {
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    ContentManager.getInstance().setTag(this, FragmentTag.ROTATING_IMAGE_VIEW.getTag());
-    getActivity().setTitle(FragmentTag.ROTATING_IMAGE_VIEW.getTitle());
+    ContentManager.getInstance().setTagAndTitle(this, FragmentTag.ROTATING_IMAGE_VIEW);
 
     ((SeekBar) getActivity().findViewById(R.id.drawingSeekBarX)).setOnSeekBarChangeListener(seekBarChangeListener);
     ((SeekBar) getActivity().findViewById(R.id.drawingSeekBarY)).setOnSeekBarChangeListener(seekBarChangeListener);

@@ -11,11 +11,12 @@ import android.view.MenuItem;
 import com.siziksu.canvas.R;
 import com.siziksu.canvas.ui.commons.ActivityCommon;
 import com.siziksu.canvas.ui.commons.Navigation;
+import com.siziksu.canvas.ui.fragment.BubbleViewFragment;
 import com.siziksu.canvas.ui.fragment.CounterView01Fragment;
 import com.siziksu.canvas.ui.fragment.CounterView02Fragment;
 import com.siziksu.canvas.ui.fragment.DrawingViewFragment;
 import com.siziksu.canvas.ui.fragment.FragmentTag;
-import com.siziksu.canvas.ui.fragment.HomeFragment;
+import com.siziksu.canvas.ui.fragment.MainFragment;
 import com.siziksu.canvas.ui.fragment.RectAndArcFragment;
 import com.siziksu.canvas.ui.fragment.RotatingImageViewFragment;
 import com.siziksu.canvas.ui.fragment.RoundedViewFragment;
@@ -61,50 +62,49 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
   @Override
   public boolean onNavigationItemSelected(MenuItem menuItem) {
     Fragment fragment = null;
-    String newTag = null;
+    FragmentTag newTag = null;
     int viewId = 0;
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
     switch (menuItem.getItemId()) {
-      case R.id.actionHome:
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-        fragment = new HomeFragment();
-        newTag = FragmentTag.HOME.getTag();
-        viewId = R.id.mainContent;
-        break;
       case R.id.actionRectAndArc:
         fragment = new RectAndArcFragment();
-        newTag = FragmentTag.RECT_AND_ARC.getTag();
+        newTag = FragmentTag.RECT_AND_ARC;
         viewId = R.id.mainContent;
         break;
       case R.id.actionRotatingImageView:
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         fragment = new RotatingImageViewFragment();
-        newTag = FragmentTag.ROTATING_IMAGE_VIEW.getTag();
+        newTag = FragmentTag.ROTATING_IMAGE_VIEW;
         viewId = R.id.mainContent;
         break;
       case R.id.actionDrawingView:
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         fragment = new DrawingViewFragment();
-        newTag = FragmentTag.DRAWING_VIEW.getTag();
+        newTag = FragmentTag.DRAWING_VIEW;
         viewId = R.id.mainContent;
         break;
       case R.id.actionRoundedView:
         fragment = new RoundedViewFragment();
-        newTag = FragmentTag.ROUNDED_VIEW.getTag();
+        newTag = FragmentTag.ROUNDED_VIEW;
         viewId = R.id.mainContent;
         break;
       case R.id.actionCounterView01:
         fragment = new CounterView01Fragment();
-        newTag = FragmentTag.COUNTER_VIEW_01.getTag();
+        newTag = FragmentTag.COUNTER_VIEW_01;
         viewId = R.id.mainContent;
         break;
       case R.id.actionCounterView02:
         fragment = new CounterView02Fragment();
-        newTag = FragmentTag.COUNTER_VIEW_02.getTag();
+        newTag = FragmentTag.COUNTER_VIEW_02;
+        viewId = R.id.mainContent;
+        break;
+      case R.id.actionBubbleView:
+        fragment = new BubbleViewFragment();
+        newTag = FragmentTag.BUBBLE_VIEW;
         viewId = R.id.mainContent;
         break;
     }
-    contentManager.setContent(getSupportFragmentManager(), fragment, newTag, viewId, true);
+    contentManager.setContent(getSupportFragmentManager(), fragment, newTag, viewId, false);
     navigation.closeDrawers();
     return true;
   }

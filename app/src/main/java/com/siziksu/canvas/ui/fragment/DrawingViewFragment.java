@@ -35,8 +35,7 @@ public class DrawingViewFragment extends Fragment {
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    ContentManager.getInstance().setTag(this, FragmentTag.DRAWING_VIEW.getTag());
-    getActivity().setTitle(FragmentTag.DRAWING_VIEW.getTitle());
+    ContentManager.getInstance().setTagAndTitle(this, FragmentTag.DRAWING_VIEW);
   }
 
   @Override

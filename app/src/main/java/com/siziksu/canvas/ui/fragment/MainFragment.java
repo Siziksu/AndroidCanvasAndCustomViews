@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import com.siziksu.canvas.R;
 import com.siziksu.canvas.ui.manager.ContentManager;
 
-public class HomeFragment extends Fragment {
+public class MainFragment extends Fragment {
 
-  public HomeFragment() {
+  public MainFragment() {
     // Required empty public constructor
   }
 
@@ -35,8 +35,7 @@ public class HomeFragment extends Fragment {
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    ContentManager.getInstance().setTag(this, FragmentTag.HOME.getTag());
-    getActivity().setTitle(FragmentTag.HOME.getTitle());
+    ContentManager.getInstance().setTagAndTitle(this, FragmentTag.MAIN);
   }
 
   @Override

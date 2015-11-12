@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.SeekBar;
 
 import com.siziksu.canvas.R;
-import com.siziksu.canvas.ui.view.CounterView;
 import com.siziksu.canvas.ui.manager.ContentManager;
+import com.siziksu.canvas.ui.view.CounterView;
 
 public class CounterView01Fragment extends Fragment {
 
@@ -39,8 +39,7 @@ public class CounterView01Fragment extends Fragment {
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    ContentManager.getInstance().setTag(this, FragmentTag.COUNTER_VIEW_01.getTag());
-    getActivity().setTitle(FragmentTag.COUNTER_VIEW_01.getTitle());
+    ContentManager.getInstance().setTagAndTitle(this, FragmentTag.COUNTER_VIEW_01);
 
     ((SeekBar) getActivity().findViewById(R.id.counterSeekBar)).setOnSeekBarChangeListener(seekBarChangeListener);
     counterView = (CounterView) getActivity().findViewById(R.id.drawingCounterView);

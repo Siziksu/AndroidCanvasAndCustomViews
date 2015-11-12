@@ -35,8 +35,7 @@ public class RectAndArcFragment extends Fragment {
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    ContentManager.getInstance().setTag(this, FragmentTag.RECT_AND_ARC.getTag());
-    getActivity().setTitle(FragmentTag.RECT_AND_ARC.getTitle());
+    ContentManager.getInstance().setTagAndTitle(this, FragmentTag.RECT_AND_ARC);
   }
 
   @Override

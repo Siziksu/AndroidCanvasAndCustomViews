@@ -16,6 +16,7 @@
   <string name="action_rounded_view">Rounded view</string>
   <string name="action_counter_view_01">Counter view 01</string>
   <string name="action_counter_view_02">Counter view 02</string>
+  <string name="action_bubble_view">Bubble view</string>
 
   <string name="home_hint">Select one example from the menu.</string>
   <string name="drawing_view_hint">Draw the screen with your finger.</string>
@@ -23,4 +24,7 @@
   <string name="drawer_open">Open</string>
   <string name="drawer_close">Close</string>
 
+  <string name="bubble_temp_text1">This is a dummy text used to test the bubbles</string>
+  <string name="bubble_temp_text2">This dummy text helps testing</string>
+  <string name="bubble_temp_text3">This is a dummy text</string>
 </resources>

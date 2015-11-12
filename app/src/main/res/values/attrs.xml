@@ -40,5 +40,23 @@
     <attr name="cvOuterScaleSize" format="dimension" />
     <attr name="cvRimScaleWidth" format="dimension" />
   </declare-styleable>
-
+  <declare-styleable name="BubbleView">
+    <attr name="bubbleBackground" format="reference" />
+    <attr name="bubbleCategoryDrawable" format="reference" />
+    <attr name="android:textColor" />
+    <attr name="android:textSize" />
+    <attr name="android:textStyle" />
+    <attr name="bubbleText" format="string" />
+    <attr name="bubbleTextPadding" format="dimension" />
+    <attr name="bubbleMiniValue" format="integer" />
+    <attr name="bubbleMiniColor" format="color" />
+    <attr name="bubbleMiniTextColor" format="color" />
+    <attr name="bubbleMiniPosition" format="enum">
+      <enum name="topLeft" value="0"/>
+      <enum name="topRight" value="1"/>
+      <enum name="bottomLeft" value="2"/>
+      <enum name="bottomRight" value="3"/>
+    </attr>
+  </declare-styleable>
 </resources>
+

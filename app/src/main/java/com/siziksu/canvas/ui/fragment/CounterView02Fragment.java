@@ -39,8 +39,7 @@ public class CounterView02Fragment extends Fragment {
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    ContentManager.getInstance().setTag(this, FragmentTag.COUNTER_VIEW_02.getTag());
-    getActivity().setTitle(FragmentTag.COUNTER_VIEW_02.getTitle());
+    ContentManager.getInstance().setTagAndTitle(this, FragmentTag.COUNTER_VIEW_02);
 
     ((SeekBar) getActivity().findViewById(R.id.counterSeekBar)).setOnSeekBarChangeListener(seekBarChangeListener);
     counterView = (CounterView) getActivity().findViewById(R.id.drawingCounterView);
