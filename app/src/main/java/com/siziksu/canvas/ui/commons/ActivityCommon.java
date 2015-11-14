@@ -54,4 +54,44 @@ public class ActivityCommon {
   public void showMessage(String message) {
     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
   }
+
+  /**
+   * Converts a value into sp unit
+   *
+   * @param value the value to convert
+   * @return the value in sp
+   */
+  public int valueToSp(float value) {
+    return dpToPx(value);
+  }
+
+  /**
+   * Converts a value into dp unit
+   *
+   * @param value the value to convert
+   * @return the value in dp
+   */
+  public int valueToDp(float value) {
+    return dpToPx(value);
+  }
+
+  /**
+   * Converts dp units into px
+   *
+   * @param dp the value to convert
+   * @return the value in px
+   */
+  public int dpToPx(float dp) {
+    return (int) (dp * (context.getResources().getDisplayMetrics().densityDpi / 160f));
+  }
+
+  /**
+   * Converts px units into dp
+   *
+   * @param px the value to convert
+   * @return the value in dp
+   */
+  public int pxToDp(float px) {
+    return (int) (px / (context.getResources().getDisplayMetrics().densityDpi / 160f));
+  }
 }

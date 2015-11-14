@@ -13,30 +13,21 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.siziksu.canvas.R;
 
 public class BubbleView extends View {
 
-  private static boolean LOG = false;
-
-  private static final int TOP_LEFT = 0;
-  private static final int TOP_RIGHT = 1;
-  private static final int BOTTOM_LEFT = 2;
-  private static final int BOTTOM_RIGHT = 3;
+  public static final int TOP_LEFT = 0;
+  public static final int TOP_RIGHT = 1;
+  public static final int BOTTOM_LEFT = 2;
+  public static final int BOTTOM_RIGHT = 3;
 
   private int layout_height = 0;
   private int layout_width = 0;
 
   private int radius;
-  private int diameter;
-
-  private float cx;
-  private float cy;
-  private float cos;
-  private float sin;
 
   private int miniBubbleAngle;
   private float miniBubbleRadius;
@@ -48,7 +39,7 @@ public class BubbleView extends View {
   private int miniBubbleValue = 0;
   private Paint miniItemsPaint = new Paint();
   private int miniBubbleTextColor = 0xAAFFFFFF;
-  private int miniBubblePosition;
+  private int miniBubblePosition = -45;
 
   private String text;
   private int textStyle = Typeface.NORMAL;
@@ -56,12 +47,12 @@ public class BubbleView extends View {
   private float textSize = 30;
   private TextPaint textPaint = new TextPaint();
 
-  private float bubbleTextPadding = 0;
+  private float textPadding = 0;
   private float bubbleHorizontalCompensation = 0;
   private int bubbleVerticalCompensation = 0;
   private Drawable bubbleBackgroundDrawable;
 
-  private Drawable categoryDrawable;
+  private Drawable bubbleCategoryDrawable;
 
   public BubbleView(Context context) {
     super(context);
@@ -100,15 +91,14 @@ public class BubbleView extends View {
     textColor = attributes.getColor(R.styleable.BubbleView_android_textColor, textColor);
     textSize = attributes.getDimension(R.styleable.BubbleView_android_textSize, textSize);
     textStyle = attributes.getInteger(R.styleable.BubbleView_android_textStyle, textStyle);
-    bubbleTextPadding = attributes.getDimension(R.styleable.BubbleView_bubbleTextPadding, bubbleTextPadding);
+    textPadding = attributes.getDimension(R.styleable.BubbleView_bubbleTextPadding, textPadding);
     bubbleBackgroundDrawable = attributes.getDrawable(R.styleable.BubbleView_bubbleBackground);
-    categoryDrawable = attributes.getDrawable(R.styleable.BubbleView_bubbleCategoryDrawable);
+    bubbleCategoryDrawable = attributes.getDrawable(R.styleable.BubbleView_bubbleCategoryDrawable);
     miniBubbleValue = attributes.getInteger(R.styleable.BubbleView_bubbleMiniValue, miniBubbleValue);
     miniBubbleColor = attributes.getColor(R.styleable.BubbleView_bubbleMiniColor, miniBubbleColor);
     miniBubbleTextColor = attributes.getColor(R.styleable.BubbleView_bubbleMiniTextColor, miniBubbleTextColor);
     miniBubblePosition = attributes.getInteger(R.styleable.BubbleView_bubbleMiniPosition, miniBubblePosition);
     attributes.recycle();
-    logAttributes();
   }
 
   @Override
@@ -130,13 +120,13 @@ public class BubbleView extends View {
 
   private void setup() {
     setMiniBubbleAngle();
-    cx = layout_width / 2;
-    cy = layout_height / 2;
+    float cx = layout_width / 2;
+    float cy = layout_height / 2;
     calculateCompensations();
-    diameter = Math.min(layout_width, layout_height);
+    int diameter = Math.min(layout_width, layout_height);
     radius = diameter / 2;
-    cos = (float) Math.cos(Math.toRadians(miniBubbleAngle));
-    sin = (float) Math.sin(Math.toRadians(miniBubbleAngle));
+    float cos = (float) Math.cos(Math.toRadians(miniBubbleAngle));
+    float sin = (float) Math.sin(Math.toRadians(miniBubbleAngle));
     miniBubbleRadius = (float) (diameter * 0.085); // 8.5% of the diameter
     miniBubbleCx = cx + radius * cos;
     miniBubbleCy = cy + radius * sin;
@@ -148,20 +138,19 @@ public class BubbleView extends View {
           layout_height - (bubbleVerticalCompensation / 2)
       );
     }
-    if (categoryDrawable != null) {
+    if (bubbleCategoryDrawable != null) {
       float categoryDrawableDimension = (float) (diameter * 0.225);
       float categoryX = cx - categoryDrawableDimension / 2;
       float categoryY = cy - categoryDrawableDimension;
       float categoryWidth = categoryX + categoryDrawableDimension;
       float categoryHeight = categoryY + categoryDrawableDimension;
-      categoryDrawable.setBounds(
+      bubbleCategoryDrawable.setBounds(
           (int) categoryX,
           (int) categoryY,
           (int) categoryWidth,
           (int) categoryHeight
       );
     }
-    logSetup();
   }
 
   private void setMiniBubbleAngle() {
@@ -187,7 +176,6 @@ public class BubbleView extends View {
       if (layout_height > layout_width) {
         bubbleVerticalCompensation = layout_height - layout_width;
       }
-      logCompensations();
     }
   }
 
@@ -217,8 +205,8 @@ public class BubbleView extends View {
     if (bubbleBackgroundDrawable != null) {
       bubbleBackgroundDrawable.draw(canvas);
     }
-    if (categoryDrawable != null) {
-      categoryDrawable.draw(canvas);
+    if (bubbleCategoryDrawable != null) {
+      bubbleCategoryDrawable.draw(canvas);
     }
     if (miniBubbleValue != 0) {
       canvas.drawCircle(miniBubbleCx, miniBubbleCy, miniBubbleRadius, miniBubblePaint);
@@ -230,7 +218,7 @@ public class BubbleView extends View {
   }
 
   public void drawMultiLineEllipsizedText(final Canvas canvas, final TextPaint textPaint, final String text, int layout_width) {
-    int width = layout_width - (int) bubbleTextPadding - (int) bubbleHorizontalCompensation;
+    int width = layout_width - (int) textPadding - (int) bubbleHorizontalCompensation;
     StaticLayout layout = new StaticLayout(text, textPaint, width, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
     canvas.save();
     float x = radius + bubbleHorizontalCompensation / 2;
@@ -240,40 +228,53 @@ public class BubbleView extends View {
     canvas.restore();
   }
 
-  private void logSetup() {
-    if (LOG) {
-      String log = "{\ndiameter " + diameter;
-      log += "\nradius " + radius;
-      log += "\nlayout_width " + layout_width;
-      log += "\nlayout_height " + layout_height;
-      log += "\ncenter " + cx + "," + cy;
-      log += "\ncos(" + miniBubbleAngle + ") = " + cos;
-      log += "\nsin(" + miniBubbleAngle + ") = " + sin;
-      log += "\nmini radius " + miniBubbleRadius;
-      log += "\nmini center " + miniBubbleCx + "," + miniBubbleCy;
-      log += "\n}";
-      Log.wtf("CUSTOM VIEW", log);
-    }
+  public void setBubbleBackground(Drawable drawable) {
+    this.bubbleBackgroundDrawable = drawable;
   }
 
-  private void logAttributes() {
-    if (LOG) {
-      String log = "{\ntext " + text;
-      log += "\ntextColor " + textColor;
-      log += "\ntextSize " + textSize;
-      log += "\ntextStyle " + textStyle;
-      log += "\nbubbleTextPadding " + bubbleTextPadding;
-      log += "\n}";
-      Log.wtf("CUSTOM VIEW", log);
-    }
+  public void setCategoryDrawable(Drawable drawable) {
+    this.bubbleCategoryDrawable = drawable;
   }
 
-  private void logCompensations() {
-    if (LOG) {
-      String log = "{\nbubbleHorizontalCompensation " + bubbleHorizontalCompensation;
-      log += "\nbubbleVerticalCompensation " + bubbleVerticalCompensation;
-      log += "\n}";
-      Log.wtf("CUSTOM VIEW", log);
-    }
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public void setTextColor(int color) {
+    this.textColor = color;
+  }
+
+  public void setTextSize(float size) {
+    this.textSize = size;
+  }
+
+  public void setTextStyle(int style) {
+    this.textStyle = style;
+  }
+
+  public void setTextPadding(float padding) {
+    this.textPadding = padding;
+  }
+
+  /**
+   * Sets the number of items that the bubble will show
+   */
+  public void setMiniBubbleValue(int value) {
+    this.miniBubbleValue = value;
+  }
+
+  public void setMiniBubbleColor(int color) {
+    this.miniBubbleColor = color;
+  }
+
+  public void setMiniBubbleTextColor(int color) {
+    this.miniBubbleTextColor = color;
+  }
+
+  /**
+   * Sets the position of the mini bubble using BubbleView constants (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT)
+   */
+  public void setMiniBubblePosition(int position) {
+    this.miniBubblePosition = position;
   }
 }
