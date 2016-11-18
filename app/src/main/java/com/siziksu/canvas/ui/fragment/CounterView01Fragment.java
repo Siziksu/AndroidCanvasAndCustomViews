@@ -1,6 +1,5 @@
 package com.siziksu.canvas.ui.fragment;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,62 +8,41 @@ import android.view.ViewGroup;
 import android.widget.SeekBar;
 
 import com.siziksu.canvas.R;
-import com.siziksu.canvas.ui.manager.ContentManager;
 import com.siziksu.canvas.ui.view.CounterView;
 
 public class CounterView01Fragment extends Fragment {
 
-  private CounterView counterView;
+    private CounterView counterView;
 
-  public CounterView01Fragment() {
-    // Required empty public constructor
-  }
-
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-  }
-
-  @Override
-  public void onAttach(Activity activity) {
-    super.onAttach(activity);
-  }
-
-  @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_counter_view_01, container, false);
-  }
-
-  @Override
-  public void onViewCreated(View view, Bundle savedInstanceState) {
-    super.onViewCreated(view, savedInstanceState);
-
-    ContentManager.getInstance().setTagAndTitle(this, FragmentTag.COUNTER_VIEW_01);
-
-    ((SeekBar) getActivity().findViewById(R.id.counterSeekBar)).setOnSeekBarChangeListener(seekBarChangeListener);
-    counterView = (CounterView) getActivity().findViewById(R.id.drawingCounterView);
-  }
-
-  @Override
-  public void onResume() {
-    super.onResume();
-  }
-
-  private final SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
+    public CounterView01Fragment() {}
 
     @Override
-    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-      counterView.setIncrement(i);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_counter_view_01, container, false);
     }
 
     @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ((SeekBar) getActivity().findViewById(R.id.counterSeekBar)).setOnSeekBarChangeListener(seekBarChangeListener);
+        counterView = (CounterView) getActivity().findViewById(R.id.drawingCounterView);
     }
 
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
+    private final SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
 
-    }
-  };
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+            counterView.setIncrement(i);
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+    };
 }
