@@ -40,7 +40,7 @@ public class RotatingImageViewFragment extends Fragment {
         public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
             switch (seekBar.getId()) {
                 case R.id.drawingSeekBarX:
-                    // Logger.logE("x" + x + " i" + i + " apply " + (i - x) + "(" + i + "-" + x + ")");
+                    // Log.i(Constants.TAG, "x" + x + " i" + i + " apply " + (i - x) + "(" + i + "-" + x + ")");
                     rotatingImageView.setTurning(i - x, 0, 0);
                     x = i;
                     break;

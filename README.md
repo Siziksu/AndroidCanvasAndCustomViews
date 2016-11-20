@@ -1,6 +1,15 @@
 # CanvasAndCustomViews
 Examples of Canvas and Custom Views in Android.
 
+## Screenshots
+
+![Screenshot](art/device-2016-11-20-231321.png)
+![Screenshot](art/device-2016-11-20-231354.png)
+![Screenshot](art/device-2016-11-20-231418.png)
+![Screenshot](art/device-2016-11-20-231427.png)
+![Screenshot](art/device-2016-11-20-231538.png)
+![Screenshot](art/device-2016-11-20-231608.png)
+
 ## License
     Copyright 2015 Esteban Latre
     
