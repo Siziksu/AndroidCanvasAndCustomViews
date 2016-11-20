@@ -29,8 +29,6 @@ public class CounterView extends View {
     private int drawingAngle = 300;
     private int stepAngle = 30;
 
-    private float multiplier;
-
     private int layout_height = 0;
     private int layout_width = 0;
 
@@ -184,8 +182,6 @@ public class CounterView extends View {
 
         rimScaleInnerRadius = fullRadius - maxBarRimValue - maxPaddingValue - 5;
         rimScaleOuterRadius = fullRadius - maxPaddingValue + 5;
-
-        multiplier = drawingAngle / (float) max;
     }
 
     private void setupPaints() {
@@ -235,6 +231,7 @@ public class CounterView extends View {
     }
 
     public void setIncrement(int increment) {
+        float multiplier = drawingAngle / (float) max;
         this.increment = (int) (increment * multiplier);
         text = String.valueOf(increment);
         invalidate();

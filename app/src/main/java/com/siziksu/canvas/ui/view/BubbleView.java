@@ -14,8 +14,12 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.siziksu.canvas.R;
+
+import java.security.SecureRandom;
 
 public class BubbleView extends View {
 
@@ -23,11 +27,16 @@ public class BubbleView extends View {
     public static final int TOP_RIGHT = 1;
     public static final int BOTTOM_LEFT = 2;
     public static final int BOTTOM_RIGHT = 3;
+    private static final int MILLIS = 1000;
+    private static final float RANDOM_VALUE_GENERATOR = 0.6f;
 
     private int layout_height = 0;
     private int layout_width = 0;
 
     private int radius;
+
+    private boolean animated;
+    private int animation;
 
     private int miniBubbleAngle;
     private float miniBubbleRadius;
@@ -98,6 +107,8 @@ public class BubbleView extends View {
         miniBubbleColor = attributes.getColor(R.styleable.BubbleView_bubbleMiniColor, miniBubbleColor);
         miniBubbleTextColor = attributes.getColor(R.styleable.BubbleView_bubbleMiniTextColor, miniBubbleTextColor);
         miniBubblePosition = attributes.getInteger(R.styleable.BubbleView_bubbleMiniPosition, miniBubblePosition);
+        animated = attributes.getBoolean(R.styleable.BubbleView_bubbleAnimated, animated);
+        animation = attributes.getResourceId(R.styleable.BubbleView_bubbleAnimation, animation);
         attributes.recycle();
     }
 
@@ -110,6 +121,13 @@ public class BubbleView extends View {
      *
      * this.getPaddingLeft() | this.getPaddingRight() | this.getPaddingTop() | this.getPaddingBottom()
      */
+        if (animated && animation != 0) {
+            Animation bubbleAnimation = AnimationUtils.loadAnimation(getContext(), animation);
+            double random = new SecureRandom().nextFloat() * RANDOM_VALUE_GENERATOR;
+            long time = Math.round(MILLIS * random);
+            bubbleAnimation.setStartOffset(time);
+            startAnimation(bubbleAnimation);
+        }
         layout_width = w - this.getPaddingLeft() - this.getPaddingRight();
         layout_height = h - this.getPaddingTop() - this.getPaddingBottom();
         text = text != null ? text : "";
@@ -276,5 +294,13 @@ public class BubbleView extends View {
      */
     public void setMiniBubblePosition(int position) {
         this.miniBubblePosition = position;
+    }
+
+    public void setAnimated(boolean animated) {
+        this.animated = animated;
+    }
+
+    public void setAnimation(int animation) {
+        this.animation = animation;
     }
 }

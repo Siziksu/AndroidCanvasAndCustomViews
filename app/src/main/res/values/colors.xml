@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-  <color name="progress">#90386ca7</color>
-  <color name="blue_with_transparency">#502196F3</color>
-  <color name="app_card_stroke">#42000000</color>
-  <color name="row_even">@color/blue_with_transparency</color>
-
+    <color name="progress">#90386ca7</color>
+    <color name="blue_with_transparency">#502196F3</color>
+    <color name="app_card_stroke">#42000000</color>
+    <color name="row_even">@color/blue_with_transparency</color>
 </resources>

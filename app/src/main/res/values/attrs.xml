@@ -1,62 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-  <declare-styleable name="DrawingView">
-    <attr name="brushWidth" format="integer" />
-    <attr name="brushColor" format="color" />
-  </declare-styleable>
-  <declare-styleable name="RoundedView">
-    <attr name="android:textColor" />
-    <attr name="android:textSize" />
-    <attr name="android:textStyle" />
-    <attr name="rimColor" format="color" />
-    <attr name="rimWidth" format="dimension" />
-    <attr name="barColor" format="color" />
-    <attr name="barWidth" format="dimension" />
-    <attr name="innerCircleColor" format="color" />
-    <attr name="rimContourColor" format="color" />
-    <attr name="rimContourSize" format="dimension" />
-  </declare-styleable>
-  <declare-styleable name="RoundedImageView">
-    <attr name="rivBarColor" format="color" />
-    <attr name="rivBarWidth" format="dimension" />
-  </declare-styleable>
-  <declare-styleable name="CounterView">
-    <attr name="android:textColor" />
-    <attr name="android:textSize" />
-    <attr name="android:textStyle" />
-    <attr name="android:max" />
-    <attr name="cvStartAngle" format="integer" />
-    <attr name="cvDrawingAngle" format="integer" />
-    <attr name="cvStepAngle" format="integer" />
-    <attr name="cvBarColor" format="color" />
-    <attr name="cvBarWidth" format="dimension" />
-    <attr name="cvRimColor" format="color" />
-    <attr name="cvRimWidth" format="dimension" />
-    <attr name="cvNeedleColor" format="color" />
-    <attr name="cvNeedleWidth" format="dimension" />
-    <attr name="cvOuterScaleColor" format="color" />
-    <attr name="cvOuterScaleWidth" format="dimension" />
-    <attr name="cvOuterScaleSize" format="dimension" />
-    <attr name="cvRimScaleWidth" format="dimension" />
-  </declare-styleable>
-  <declare-styleable name="BubbleView">
-    <attr name="bubbleBackground" format="reference" />
-    <attr name="bubbleCategoryDrawable" format="reference" />
-    <attr name="android:textColor" />
-    <attr name="android:textSize" />
-    <attr name="android:textStyle" />
-    <attr name="bubbleText" format="string" />
-    <attr name="bubbleTextPadding" format="dimension" />
-    <attr name="bubbleMiniValue" format="integer" />
-    <attr name="bubbleMiniColor" format="color" />
-    <attr name="bubbleMiniTextColor" format="color" />
-    <attr name="bubbleMiniPosition" format="enum">
-      <enum name="topLeft" value="0"/>
-      <enum name="topRight" value="1"/>
-      <enum name="bottomLeft" value="2"/>
-      <enum name="bottomRight" value="3"/>
-    </attr>
-  </declare-styleable>
+    <declare-styleable name="DrawingView">
+        <attr name="brushWidth" format="integer" />
+        <attr name="brushColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="RoundedView">
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="rimColor" format="color" />
+        <attr name="rimWidth" format="dimension" />
+        <attr name="barColor" format="color" />
+        <attr name="barWidth" format="dimension" />
+        <attr name="innerCircleColor" format="color" />
+        <attr name="rimContourColor" format="color" />
+        <attr name="rimContourSize" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="RoundedImageView">
+        <attr name="rivBarColor" format="color" />
+        <attr name="rivBarWidth" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="CounterView">
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="android:max" />
+        <attr name="cvStartAngle" format="integer" />
+        <attr name="cvDrawingAngle" format="integer" />
+        <attr name="cvStepAngle" format="integer" />
+        <attr name="cvBarColor" format="color" />
+        <attr name="cvBarWidth" format="dimension" />
+        <attr name="cvRimColor" format="color" />
+        <attr name="cvRimWidth" format="dimension" />
+        <attr name="cvNeedleColor" format="color" />
+        <attr name="cvNeedleWidth" format="dimension" />
+        <attr name="cvOuterScaleColor" format="color" />
+        <attr name="cvOuterScaleWidth" format="dimension" />
+        <attr name="cvOuterScaleSize" format="dimension" />
+        <attr name="cvRimScaleWidth" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="BubbleView">
+        <attr name="bubbleAnimated" format="boolean" />
+        <attr name="bubbleAnimation" format="reference" />
+        <attr name="bubbleBackground" format="reference" />
+        <attr name="bubbleCategoryDrawable" format="reference" />
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="bubbleText" format="string" />
+        <attr name="bubbleTextPadding" format="dimension" />
+        <attr name="bubbleMiniValue" format="integer" />
+        <attr name="bubbleMiniColor" format="color" />
+        <attr name="bubbleMiniTextColor" format="color" />
+        <attr name="bubbleMiniPosition" format="enum">
+            <enum name="topLeft" value="0" />
+            <enum name="topRight" value="1" />
+            <enum name="bottomLeft" value="2" />
+            <enum name="bottomRight" value="3" />
+        </attr>
+    </declare-styleable>
 </resources>
 

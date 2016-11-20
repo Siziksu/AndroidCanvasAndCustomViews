@@ -3,28 +3,27 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-  <RelativeLayout
-    android:id="@+id/mainContainer"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-    <include
-      android:id="@+id/defaultToolbar"
-      layout="@layout/toolbar_default" />
+        <include
+            android:id="@+id/defaultToolbar"
+            layout="@layout/toolbar_default" />
 
-    <FrameLayout
-      android:id="@+id/mainContent"
-      android:layout_below="@+id/defaultToolbar"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent" />
-  </RelativeLayout>
+        <FrameLayout
+            android:id="@+id/mainContent"
+            android:layout_below="@+id/defaultToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
-  <android.support.design.widget.NavigationView
-    android:id="@+id/navigationView"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_gravity="start"
-    android:background="@android:color/white" />
-
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white" />
 </android.support.v4.widget.DrawerLayout>

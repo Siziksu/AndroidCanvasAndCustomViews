@@ -1,6 +1,5 @@
 package com.siziksu.canvas.ui.activity;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         contentManager = new ContentManager(getSupportFragmentManager());
         if (savedInstanceState == null) {
             contentManager.show(R.id.mainContent, new MainFragment(), Constants.MAIN, false);
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
     }
 
@@ -55,38 +53,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (navigation.isOpen()) {
             navigation.close();
         } else {
+            navigation.goBackStack();
             super.onBackPressed();
         }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         switch (menuItem.getItemId()) {
             case R.id.actionRectAndArc:
-                contentManager.show(R.id.mainContent, new RectAndArcFragment(), Constants.RECT_AND_ARC, false);
+                contentManager.show(R.id.mainContent, new RectAndArcFragment(), Constants.RECT_AND_ARC, true);
                 break;
             case R.id.actionRotatingImageView:
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-                contentManager.show(R.id.mainContent, new RotatingImageViewFragment(), Constants.ROTATING_IMAGE_VIEW, false);
+                contentManager.show(R.id.mainContent, new RotatingImageViewFragment(), Constants.ROTATING_IMAGE_VIEW, true);
                 break;
             case R.id.actionDrawingView:
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-                contentManager.show(R.id.mainContent, new DrawingViewFragment(), Constants.DRAWING_VIEW, false);
+                contentManager.show(R.id.mainContent, new DrawingViewFragment(), Constants.DRAWING_VIEW, true);
                 break;
             case R.id.actionRoundedView:
-                contentManager.show(R.id.mainContent, new RoundedViewFragment(), Constants.ROUNDED_VIEW, false);
+                contentManager.show(R.id.mainContent, new RoundedViewFragment(), Constants.ROUNDED_VIEW, true);
                 break;
             case R.id.actionCounterView01:
-                contentManager.show(R.id.mainContent, new CounterView01Fragment(), Constants.COUNTER_VIEW_01, false);
+                contentManager.show(R.id.mainContent, new CounterView01Fragment(), Constants.COUNTER_VIEW_01, true);
                 break;
             case R.id.actionCounterView02:
-                contentManager.show(R.id.mainContent, new CounterView02Fragment(), Constants.COUNTER_VIEW_02, false);
+                contentManager.show(R.id.mainContent, new CounterView02Fragment(), Constants.COUNTER_VIEW_02, true);
                 break;
             case R.id.actionBubbleView:
-                contentManager.show(R.id.mainContent, new BubbleViewFragment(), Constants.BUBBLE_VIEW, false);
+                contentManager.show(R.id.mainContent, new BubbleViewFragment(), Constants.BUBBLE_VIEW, true);
+                break;
+            default:
                 break;
         }
+        navigation.addBackStack(menuItem);
         navigation.closeDrawers();
         return true;
     }

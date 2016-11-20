@@ -2,6 +2,7 @@ package com.siziksu.canvas.common;
 
 public class Constants {
 
+    public static final String TAG = "CANVAS AND CUSTOM VIEWS";
     public static final String MAIN = "main_fragment";
     public static final String RECT_AND_ARC = "rect_and_arc_fragment";
     public static final String ROTATING_IMAGE_VIEW = "rotating_image_view_fragment";

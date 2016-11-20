@@ -4,39 +4,38 @@
                 android:layout_height="match_parent"
                 android:background="@color/white">
 
-  <com.siziksu.canvas.ui.view.RotatingImageView
-    android:id="@+id/rotatingImageView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
-    android:src="@drawable/pencils"
-    android:background="@color/color_primary" />
+    <com.siziksu.canvas.ui.view.RotatingImageView
+        android:id="@+id/rotatingImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/pencils"
+        android:background="@color/colorPrimary" />
 
-  <SeekBar
-    android:id="@+id/drawingSeekBarX"
-    android:layout_below="@+id/rotatingImageView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:max="180"
-    android:layout_marginStart="40dp"
-    android:layout_marginEnd="40dp" />
+    <SeekBar
+        android:id="@+id/drawingSeekBarX"
+        android:layout_below="@+id/rotatingImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="180"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp" />
 
-  <SeekBar
-    android:id="@+id/drawingSeekBarY"
-    android:layout_below="@+id/drawingSeekBarX"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:max="180"
-    android:layout_marginStart="40dp"
-    android:layout_marginEnd="40dp" />
+    <SeekBar
+        android:id="@+id/drawingSeekBarY"
+        android:layout_below="@+id/drawingSeekBarX"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="180"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp" />
 
-  <SeekBar
-    android:id="@+id/drawingSeekBarZ"
-    android:layout_below="@+id/drawingSeekBarY"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:max="180"
-    android:layout_marginStart="40dp"
-    android:layout_marginEnd="40dp" />
-
+    <SeekBar
+        android:id="@+id/drawingSeekBarZ"
+        android:layout_below="@+id/drawingSeekBarY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="180"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp" />
 </RelativeLayout>

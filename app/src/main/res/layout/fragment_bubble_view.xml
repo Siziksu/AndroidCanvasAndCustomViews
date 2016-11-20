@@ -1,70 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:attr="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/bubbleFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/dark_light">
 
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="@null">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null">
 
-    <com.siziksu.canvas.ui.view.BubbleView
-        android:id="@+id/bubbleView1"
-        android:layout_width="225dp"
-        android:layout_height="225dp"
-        android:layout_marginTop="20dp"
-        android:background="#00000000"
-        attr:bubbleBackground="@drawable/bubble_circle"
-        attr:bubbleCategoryDrawable="@drawable/face_blue"
-        attr:bubbleText="@string/bubble_temp_text1"
-        attr:bubbleTextPadding="20dp"
-        attr:bubbleMiniValue="21"
-        attr:bubbleMiniColor="#d7275ac1"
-        attr:bubbleMiniTextColor="#ffffffff"
-        attr:bubbleMiniPosition="topRight"
-        android:textColor="#FFFFFFFF"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true" />
+        <com.siziksu.canvas.ui.view.BubbleView
+            android:id="@+id/bubbleView1"
+            android:layout_width="225dp"
+            android:layout_height="225dp"
+            android:layout_marginTop="20dp"
+            android:background="#00000000"
+            attr:bubbleBackground="@drawable/img_bubble_blue"
+            attr:bubbleCategoryDrawable="@drawable/ic_home"
+            attr:bubbleText="@string/bubble_temp_text1"
+            attr:bubbleTextPadding="20dp"
+            attr:bubbleMiniValue="21"
+            attr:bubbleMiniColor="#d7273ec1"
+            attr:bubbleMiniTextColor="#ffffffff"
+            attr:bubbleMiniPosition="topRight"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
 
-    <com.siziksu.canvas.ui.view.BubbleView
-        android:id="@+id/bubbleView2"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="110dp"
-        attr:bubbleBackground="@drawable/bubble_circle"
-        attr:bubbleCategoryDrawable="@drawable/face_green"
-        attr:bubbleText="@string/bubble_temp_text2"
-        attr:bubbleTextPadding="10dp"
-        attr:bubbleMiniValue="13"
-        attr:bubbleMiniColor="#d797ac39"
-        attr:bubbleMiniPosition="topRight"
-        android:textColor="#ffffffff"
-        android:textSize="12sp"
-        android:textStyle="normal"
-        android:background="#00000000" />
+        <com.siziksu.canvas.ui.view.BubbleView
+            android:id="@+id/bubbleView2"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginStart="110dp"
+            attr:bubbleBackground="@drawable/img_bubble_yellow"
+            attr:bubbleCategoryDrawable="@drawable/ic_call"
+            attr:bubbleText="@string/bubble_temp_text2"
+            attr:bubbleTextPadding="10dp"
+            attr:bubbleMiniValue="13"
+            attr:bubbleMiniColor="#d7e6c325"
+            attr:bubbleMiniPosition="topRight"
+            android:textColor="#ffffffff"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:background="#00000000" />
 
-    <com.siziksu.canvas.ui.view.BubbleView
-        android:id="@+id/bubbleView3"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="55dp"
-        attr:bubbleBackground="@drawable/bubble_circle"
-        attr:bubbleCategoryDrawable="@drawable/face_pink"
-        attr:bubbleText="@string/bubble_temp_text3"
-        attr:bubbleTextPadding="10dp"
-        attr:bubbleMiniValue="5"
-        attr:bubbleMiniColor="#d7a027c1"
-        attr:bubbleMiniTextColor="#ffffffff"
-        attr:bubbleMiniPosition="bottomRight"
-        android:textColor="#ffffffff"
-        android:textSize="12sp"
-        android:textStyle="normal"
-        android:background="#00000000" />
-
-  </RelativeLayout>
+        <com.siziksu.canvas.ui.view.BubbleView
+            android:id="@+id/bubbleView3"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginStart="55dp"
+            attr:bubbleBackground="@drawable/img_bubble_pink"
+            attr:bubbleCategoryDrawable="@drawable/ic_products"
+            attr:bubbleText="@string/bubble_temp_text3"
+            attr:bubbleTextPadding="10dp"
+            attr:bubbleMiniValue="5"
+            attr:bubbleMiniColor="#d7be27c1"
+            attr:bubbleMiniTextColor="#ffffffff"
+            attr:bubbleMiniPosition="bottomRight"
+            android:textColor="#ffffffff"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:background="#00000000" />
+    </RelativeLayout>
 </ScrollView>
