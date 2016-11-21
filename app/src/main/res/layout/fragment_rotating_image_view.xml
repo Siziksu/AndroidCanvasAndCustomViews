@@ -9,33 +9,78 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/pencils"
-        android:background="@color/colorPrimary" />
+        android:src="@drawable/pencils" />
 
-    <SeekBar
-        android:id="@+id/drawingSeekBarX"
+    <TextView
+        android:id="@+id/title"
         android:layout_below="@+id/rotatingImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="180"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp" />
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/axis" />
 
-    <SeekBar
-        android:id="@+id/drawingSeekBarY"
-        android:layout_below="@+id/drawingSeekBarX"
+    <LinearLayout
+        android:id="@+id/x"
+        android:layout_below="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="180"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
 
-    <SeekBar
-        android:id="@+id/drawingSeekBarZ"
-        android:layout_below="@+id/drawingSeekBarY"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/x_axis" />
+
+        <SeekBar
+            android:id="@+id/drawingSeekBarX"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="180" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/y"
+        android:layout_below="@+id/x"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="180"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/y_axis" />
+
+        <SeekBar
+            android:id="@+id/drawingSeekBarY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="180" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/z"
+        android:layout_below="@+id/y"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/z_axis" />
+
+        <SeekBar
+            android:id="@+id/drawingSeekBarZ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="180" />
+    </LinearLayout>
 </RelativeLayout>
