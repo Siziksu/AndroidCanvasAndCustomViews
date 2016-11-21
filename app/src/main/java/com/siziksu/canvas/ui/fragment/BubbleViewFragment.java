@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.siziksu.canvas.R;
-import com.siziksu.canvas.common.ActivityCommon;
+import com.siziksu.canvas.common.MetricsUtils;
 import com.siziksu.canvas.ui.view.BubbleView;
 
 public class BubbleViewFragment extends Fragment implements View.OnClickListener {
@@ -29,6 +30,7 @@ public class BubbleViewFragment extends Fragment implements View.OnClickListener
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
+        MetricsUtils.init((AppCompatActivity) getActivity());
 
         BubbleView bubble1 = (BubbleView) getActivity().findViewById(R.id.bubbleView1);
         BubbleView bubble2 = (BubbleView) getActivity().findViewById(R.id.bubbleView2);
@@ -40,9 +42,9 @@ public class BubbleViewFragment extends Fragment implements View.OnClickListener
         bubble1.setTextColor(Color.WHITE);
         bubble1.setAnimated(true);
         bubble1.setAnimation(R.anim.bubble_animation);
-        bubble1.setTextSize(ActivityCommon.getInstance(getActivity()).valueToSp(16));
+        bubble1.setTextSize(MetricsUtils.get().valueToSp(16));
         bubble1.setTextStyle(Typeface.NORMAL);
-        bubble1.setTextPadding(ActivityCommon.getInstance(getActivity()).valueToDp(20));
+        bubble1.setTextPadding(MetricsUtils.get().valueToDp(20));
         bubble1.setMiniBubbleValue(7);
         bubble1.setMiniBubbleColor(0xd7273ec1);
         bubble1.setMiniBubbleTextColor(getResources().getColor(R.color.white));

@@ -1,8 +1,10 @@
-package com.siziksu.canvas.common;
+package com.siziksu.canvas.ui.manager;
 
 import android.app.Activity;
 import android.content.res.ColorStateList;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,12 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.siziksu.canvas.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Navigation {
+public class NavigationManager {
 
     private final Activity activity;
 
@@ -27,55 +27,50 @@ public class Navigation {
 
     private final List<MenuItem> backStack = new ArrayList<>();
 
-    public Navigation(Activity activity) {
+    public NavigationManager(Activity activity) {
         this.activity = activity;
     }
 
-    public Navigation setLayout(Toolbar toolbar, int drawerLayout) {
+    public NavigationManager setLayout(Toolbar toolbar, int drawerLayout, @IdRes int mainContainer, @StringRes int open, @StringRes int close) {
         this.drawerLayout = (DrawerLayout) activity.findViewById(drawerLayout);
-        this.drawerToggle = new DrawerToggle(
-                activity,
-                this.drawerLayout,
-                toolbar,
-                R.string.drawer_open, R.string.drawer_close
-        );
+        this.drawerToggle = new DrawerToggle(activity, this.drawerLayout, toolbar, open, close);
         this.drawerLayout.addDrawerListener(drawerToggle);
-        this.mainContainer = this.drawerLayout.findViewById(R.id.mainContainer);
+        this.mainContainer = this.drawerLayout.findViewById(mainContainer);
         return this;
     }
 
-    public Navigation setNavigationView(int navigationView) {
+    public NavigationManager setNavigationView(int navigationView) {
         this.navigationView = (NavigationView) activity.findViewById(navigationView);
         return this;
     }
 
-    public Navigation setNavigationViewContent(int menu) {
+    public NavigationManager setNavigationViewContent(int menu) {
         navigationView.inflateMenu(menu);
         return this;
     }
 
-    public Navigation setNavigationViewContent(int header, int menu) {
+    public NavigationManager setNavigationViewContent(int header, int menu) {
         navigationView.inflateHeaderView(header);
         navigationView.inflateMenu(menu);
         return this;
     }
 
-    public Navigation appendMenuToNavigationViewContent(int menu) {
+    public NavigationManager appendMenuToNavigationViewContent(int menu) {
         navigationView.inflateMenu(menu);
         return this;
     }
 
-    public Navigation setNavigationViewItemSelectedListener(NavigationView.OnNavigationItemSelectedListener listener) {
+    public NavigationManager setNavigationViewItemSelectedListener(NavigationView.OnNavigationItemSelectedListener listener) {
         navigationView.setNavigationItemSelectedListener(listener);
         return this;
     }
 
-    public Navigation setItemIconTintList(@Nullable ColorStateList tint) {
+    public NavigationManager setItemIconTintList(@Nullable ColorStateList tint) {
         navigationView.setItemIconTintList(tint);
         return this;
     }
 
-    public Navigation syncState() {
+    public NavigationManager syncState() {
         this.drawerLayout.post(new Runnable() {
 
             @Override

@@ -8,9 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.siziksu.canvas.R;
-import com.siziksu.canvas.common.ActivityCommon;
 import com.siziksu.canvas.common.Constants;
-import com.siziksu.canvas.common.Navigation;
+import com.siziksu.canvas.common.Utils;
 import com.siziksu.canvas.ui.fragment.BubbleViewFragment;
 import com.siziksu.canvas.ui.fragment.CounterView01Fragment;
 import com.siziksu.canvas.ui.fragment.CounterView02Fragment;
@@ -20,26 +19,25 @@ import com.siziksu.canvas.ui.fragment.RectAndArcFragment;
 import com.siziksu.canvas.ui.fragment.RotatingImageViewFragment;
 import com.siziksu.canvas.ui.fragment.RoundedViewFragment;
 import com.siziksu.canvas.ui.manager.ContentManager;
+import com.siziksu.canvas.ui.manager.NavigationManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ContentManager contentManager;
-
-    private Navigation navigation;
+    private NavigationManager navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar defaultToolbar = (Toolbar) findViewById(R.id.defaultToolbar);
-        ActivityCommon.getInstance(this).applyToolBarStyleWithHome(this, defaultToolbar);
-        navigation = new Navigation(this);
-        navigation.setLayout(defaultToolbar, R.id.drawerLayout)
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Utils.applyToolBarStyleWithHome(this, toolbar);
+        navigation = new NavigationManager(this);
+        navigation.setLayout(toolbar, R.id.drawerLayout, R.id.mainContainer, R.string.drawer_open, R.string.drawer_close)
                   .setNavigationView(R.id.navigationView)
                   .setNavigationViewContent(R.layout.header_drawer, R.menu.menu_drawer)
                   .setNavigationViewItemSelectedListener(this)
                   .syncState();
-
         contentManager = new ContentManager(getSupportFragmentManager());
         if (savedInstanceState == null) {
             contentManager.show(R.id.mainContent, new MainFragment(), Constants.MAIN);
