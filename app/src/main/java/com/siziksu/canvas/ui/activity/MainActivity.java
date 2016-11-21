@@ -31,10 +31,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar defaultToolbar = (Toolbar) findViewById(R.id.defaultToolbar);
         ActivityCommon.getInstance(this).applyToolBarStyleWithHome(this, defaultToolbar);
-
         navigation = new Navigation(this);
         navigation.setLayout(defaultToolbar, R.id.drawerLayout)
                   .setNavigationView(R.id.navigationView)
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         contentManager = new ContentManager(getSupportFragmentManager());
         if (savedInstanceState == null) {
-            contentManager.show(R.id.mainContent, new MainFragment(), Constants.MAIN, false);
+            contentManager.show(R.id.mainContent, new MainFragment(), Constants.MAIN);
         }
     }
 
@@ -54,7 +52,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigation.close();
         } else {
             navigation.goBackStack();
-            super.onBackPressed();
+            if (contentManager.goBackStack()) {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -62,30 +62,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.actionRectAndArc:
-                contentManager.show(R.id.mainContent, new RectAndArcFragment(), Constants.RECT_AND_ARC, true);
+                contentManager.show(R.id.mainContent, new RectAndArcFragment(), Constants.RECT_AND_ARC);
+                navigation.addBackStack(menuItem);
                 break;
             case R.id.actionRotatingImageView:
-                contentManager.show(R.id.mainContent, new RotatingImageViewFragment(), Constants.ROTATING_IMAGE_VIEW, true);
+                contentManager.show(R.id.mainContent, new RotatingImageViewFragment(), Constants.ROTATING_IMAGE_VIEW);
+                navigation.addBackStack(menuItem);
                 break;
             case R.id.actionDrawingView:
-                contentManager.show(R.id.mainContent, new DrawingViewFragment(), Constants.DRAWING_VIEW, true);
+                contentManager.show(R.id.mainContent, new DrawingViewFragment(), Constants.DRAWING_VIEW);
+                navigation.addBackStack(menuItem);
                 break;
             case R.id.actionRoundedView:
-                contentManager.show(R.id.mainContent, new RoundedViewFragment(), Constants.ROUNDED_VIEW, true);
+                contentManager.show(R.id.mainContent, new RoundedViewFragment(), Constants.ROUNDED_VIEW);
+                navigation.addBackStack(menuItem);
                 break;
             case R.id.actionCounterView01:
-                contentManager.show(R.id.mainContent, new CounterView01Fragment(), Constants.COUNTER_VIEW_01, true);
+                contentManager.show(R.id.mainContent, new CounterView01Fragment(), Constants.COUNTER_VIEW_01);
+                navigation.addBackStack(menuItem);
                 break;
             case R.id.actionCounterView02:
-                contentManager.show(R.id.mainContent, new CounterView02Fragment(), Constants.COUNTER_VIEW_02, true);
+                contentManager.show(R.id.mainContent, new CounterView02Fragment(), Constants.COUNTER_VIEW_02);
+                navigation.addBackStack(menuItem);
                 break;
             case R.id.actionBubbleView:
-                contentManager.show(R.id.mainContent, new BubbleViewFragment(), Constants.BUBBLE_VIEW, true);
+                contentManager.show(R.id.mainContent, new BubbleViewFragment(), Constants.BUBBLE_VIEW);
+                navigation.addBackStack(menuItem);
                 break;
             default:
                 break;
         }
-        navigation.addBackStack(menuItem);
         navigation.closeDrawers();
         return true;
     }

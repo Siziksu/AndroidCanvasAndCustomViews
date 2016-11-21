@@ -98,7 +98,6 @@ public class Navigation {
             }
         } else {
             backStack.add(item);
-            item.setChecked(true);
         }
     }
 
