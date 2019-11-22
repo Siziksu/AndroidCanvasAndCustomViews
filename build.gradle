@@ -1,14 +1,19 @@
 buildscript {
+  ext.gradlePluginVersion = '3.5.2'
+
   repositories {
+    google()
     jcenter()
   }
+
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.2'
+    classpath "com.android.tools.build:gradle:$gradlePluginVersion"
   }
 }
 
 allprojects {
   repositories {
+    google()
     jcenter()
   }
 }
